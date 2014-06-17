@@ -8,8 +8,7 @@ class StudentsController < ApplicationController
   	
   	@student = Student.new(student_params)
   	@first_save = @student.save
-
-    @student.save
+ 
     @student.create_user
     @student.user.email = @student.email
     @student.user.password = @student.password
