@@ -6,6 +6,7 @@ class LessonsController < ApplicationController
 	def create
 		@lesson = Lesson.new(lesson_params)
 		@lesson.employee_id = current_user.profile.id
+		@lesson_save = @lesson.save
 		
 		 if @lesson_save
       		redirect_to :controller=>'lessons', :action => 'index'
