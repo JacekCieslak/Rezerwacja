@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rezerwacja</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+ <% unless user_signed_in? %>
+                        <li><%= link_to "Zaloguj", user_session_path %></li>
+                    <% else %>
+                        <li class="dropdown pull-right">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Mój profil <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Ustawienia</a></li>
+                                <li class="divider"></li>
+                                <li><%= link_to "Wyloguj", destroy_user_session_path, :method => :delete %></li>
+                            </ul>
+                        </li>
+                    <% end %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
