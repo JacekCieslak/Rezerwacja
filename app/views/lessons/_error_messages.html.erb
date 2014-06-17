@@ -1,0 +1,13 @@
+<% if @lesson.errors.any? %>
+<div class="alert bg-danger">
+	<a href="#" class="close" data-dismiss="alert">&times;</a>
+	The form contains <%= pluralize(@lesson.errors.count, "error") %>.
+	<ul>
+		<% @lesson.errors.full_messages.each do |msg| %>
+		<li>
+			* <%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>

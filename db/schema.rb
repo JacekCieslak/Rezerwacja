@@ -14,11 +14,11 @@
 ActiveRecord::Schema.define(version: 20140617115420) do
 
   create_table "employees", force: true do |t|
+    t.string   "degree"
     t.string   "name"
     t.string   "surname"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "degree"
   end
 
   create_table "lessons", force: true do |t|
