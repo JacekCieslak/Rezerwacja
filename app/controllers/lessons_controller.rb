@@ -1,5 +1,6 @@
 class LessonsController < ApplicationController
-	before_action :authenticate_user!
+	before_action :authenticate_user!, :check
+
 	def new
 		@lesson = Lesson.new
 	end
@@ -40,6 +41,13 @@ class LessonsController < ApplicationController
 		@lesson = Lesson.find(params[:id])
 		@lesson.delete
 		redirect_to :controller=>'lessons', :action => 'index'
+		logger.debug @lesson
+	end
+	private
+	def check
+		if(current_user.profile_type == 'Student' && ( action_name == 'new' || action_name == 'destroy' || action_name == 'edit'))
+			redirect_to root_path
+		end
 	end
 end
 

@@ -27,10 +27,16 @@
 
                     <% if current_user.profile_type == "Employee" %>
                         <td><%= link_to "Edycja",  edit_lesson_path(lesson.id)  %></td>
-                        <td><%= link_to("Usuń", lesson_path(lesson), :method => :delete) %></td>
+
+                       
+
+                        <td> <%= form_for(lesson, :method => :delete) do |f| %>
+                        <%= f.submit :value => "Delete" %>
+                        <% end %></td>
+
                     <% else %>
                         <%if (lesson.room.places - lesson.students.count) == 0 %>
-                         <td> Brak wolnych mijsc </td>
+                         <td> Brak wolnych miejsc </td>
                         <% elsif lesson.students.pluck(:id).include?(current_user.profile.id) %>
                           <td> Jesteś zapisany </td>
                          <% else %>
@@ -51,3 +57,4 @@
         </tbody>
 
     </table>
+
