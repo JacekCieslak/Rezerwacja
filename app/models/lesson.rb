@@ -1,4 +1,6 @@
 class Lesson < ActiveRecord::Base
+	attr_accessor :lesson_id #id lekcji na która zapisuje sie student
+
 	belongs_to :room
 	belongs_to :employee
 	has_and_belongs_to_many :students

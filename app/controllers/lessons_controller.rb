@@ -4,6 +4,11 @@ class LessonsController < ApplicationController
 		@lesson = Lesson.new
 	end
 	def create
+		if params[:lesson][:lesson_id]
+			Lesson.find((params[:lesson][:lesson_id]).to_i).students << Student.find(current_user.profile.id)
+			logger.debug params[:lesson][:lesson_id].to_i
+			redirect_to :controller=>'lessons', :action => 'index'
+		else
 		@lesson = Lesson.new(lesson_params)
 		@lesson.employee_id = current_user.profile.id
 		@lesson_save = @lesson.save
@@ -13,6 +18,7 @@ class LessonsController < ApplicationController
     	 else
      		 render 'new'
    		 end
+   		end
 	end
 
 	def lesson_params
@@ -20,9 +26,11 @@ class LessonsController < ApplicationController
 	end
 
 	def index
-		
-		@lessons = Lesson.where(employee_id: current_user.profile.id)
-		
+		if current_user.profile_type == "Emmployee"
+			@lessons = Lesson.where(employee_id: current_user.profile.id)
+		else
+			@lessons = Lesson.all
+		end
 	end 
 
 	def edit
