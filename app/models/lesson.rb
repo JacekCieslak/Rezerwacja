@@ -13,6 +13,7 @@ class Lesson < ActiveRecord::Base
 		@lesson = Lesson.where(hour: self.hour, room_id: self.room_id, day: self.day, week_type: self.week_type )
 		if @lesson.count > 0
 			errors.add(:hour, 'NIE')
+			
 		end
 	end
 end
