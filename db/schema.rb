@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140617115420) do
+ActiveRecord::Schema.define(version: 20140618075640) do
 
   create_table "employees", force: true do |t|
     t.string   "name"
@@ -24,13 +24,17 @@ ActiveRecord::Schema.define(version: 20140617115420) do
   create_table "lessons", force: true do |t|
     t.string   "name"
     t.integer  "employee_id"
-    t.integer  "student_id"
     t.integer  "room_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "week_type"
     t.string   "hour"
     t.string   "day"
+  end
+
+  create_table "lessons_students", id: false, force: true do |t|
+    t.integer "student_id"
+    t.integer "lesson_id"
   end
 
   create_table "rooms", force: true do |t|

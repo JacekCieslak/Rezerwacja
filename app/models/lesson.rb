@@ -1,6 +1,7 @@
 class Lesson < ActiveRecord::Base
 	belongs_to :room
 	belongs_to :employee
+	has_and_belongs_to_many :students
 	validates :name, :employee_id, :room_id, :week_type, :hour, :day, presence: true
 	validate :check_lesson
 	
