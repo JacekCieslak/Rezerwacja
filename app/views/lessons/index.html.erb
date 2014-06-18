@@ -11,6 +11,10 @@
             </tr>
         </thead>
         <tbody>
+                <% if @lessons.empty? %>
+                <td colspan="7"> Nie dodałeś żadnych zajęć </td>
+                <%else %>
+
                 <% @lessons.each_with_index do |lesson, i| %>
                 <tr>
                     <td><%= (i+1) %></td>
@@ -21,22 +25,28 @@
                     <td><%= lesson.room.name %></td>
                     <td><%=  (lesson.room.places - lesson.students.count).to_s + "/" + lesson.room.places.to_s%></td>
 
-                    <% if current_user.profile_type == "Emmployee" %>
+                    <% if current_user.profile_type == "Employee" %>
                         <td><%= link_to "Edycja",  edit_lesson_path(lesson.id)  %></td>
                         <td><%= link_to("Usuń", lesson_path(lesson), :method => :delete) %></td>
                     <% else %>
-
-                        <td> <%= form_for :lesson, url: lessons_path, html: { method: :post, :class => "form-horizontal"} do |f| %>
-                                <%= f.hidden_field :lesson_id, value: lesson.id %>
-                                <%= f.submit "Zapisz", class: "btn btn-primary active btn-lg" %>
-                             <% end %> 
-                         </td>
+                        <%if (lesson.room.places - lesson.students.count) == 0 %>
+                         <td> Brak wolnych mijsc </td>
+                        <% elsif lesson.students.pluck(:id).include?(current_user.profile.id) %>
+                          <td> Jesteś zapisany </td>
+                         <% else %>
+                            <td> <%= form_for :lesson, url: lessons_path, html: { method: :post, :class => "form-horizontal"} do |f| %>
+                                    <%= f.hidden_field :lesson_id, value: lesson.id %>
+                                    <%= f.submit "Zapisz", class: "btn btn-primary active btn-lg" %>
+                                 <% end %> 
+                             </td>
+                        <%end%>
                     
                     <%end%>
 
 
 
                 </tr>
+                <% end %>
                 <% end %>
         </tbody>
 

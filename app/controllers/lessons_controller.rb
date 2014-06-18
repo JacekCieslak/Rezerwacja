@@ -26,10 +26,10 @@ class LessonsController < ApplicationController
 	end
 
 	def index
-		if current_user.profile_type == "Emmployee"
+		if current_user.profile_type == "Employee"
 			@lessons = Lesson.where(employee_id: current_user.profile.id)
 		else
-			@lessons = Lesson.all
+			@lessons = Lesson.all #to jest dla studentów 
 		end
 	end 
 
