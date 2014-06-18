@@ -1,5 +1,20 @@
 
+<div class="row">
+<div class="col-xs-9 col-sm-4" >
+</div>
+<div class="col-xs-6 col-sm-4">
 
-<h1>MainPage#home</h1>
+	<h1 style="text-align: center; font-size: 80px">Aplikacja</h1>
+	<h1 style="text-align: center; font-size: 80px">Rezerwacja Sal</h1>
 
-<p>Find me in app/views/main_page/home.html.erb</p>
+	<div class="login_button">
+	 <% if user_signed_in? %>
+	 <% elsif %>
+
+		<%= link_to "Zaloguj", user_session_path, class: "btn btn-primary btn-lg" %>
+	<% end %>
+	</div>
+</div>
+
+</div>
+
