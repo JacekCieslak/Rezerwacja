@@ -26,12 +26,21 @@
 	text-align: center !important;
 }
 
+body 
+{
+	background: url('remote_image_1326181877.jpg');
+	background-repeat: no-repeat;
+	background-size: 100%;
+
+}
+
+
 
 
 
 .login-container{
     position: relative;
-    width: 300px;
+    width: 500px;
     margin: 80px auto;
     padding: 20px 40px 40px;
     text-align: center;

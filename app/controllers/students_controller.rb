@@ -2,8 +2,10 @@ class StudentsController < ApplicationController
   def new
   	@student = Student.new
   end
+
   def index
   end
+  
   def create
   	
   	@student = Student.new(student_params)
