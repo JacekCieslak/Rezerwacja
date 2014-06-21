@@ -15,10 +15,18 @@
 
 room = Room.create([{name: 'B101', places:'15'}, 
 					{name: 'B102', places:'15'},
+					{name: 'B102', places:'15'},
 					{name: 'B103', places:'15'},
+					{name: 'D100', places:'15'},
+					{name: 'D101', places:'15'},
+					{name: 'D102', places:'15'},
+					{name: 'D201', places:'15'},
+					{name: 'D301', places:'15'},
 					{name: 'F101', places:'15'},
 					{name: 'F102', places:'15'},
 					{name: 'F201', places:'15'},
-					{name: 'A1', places:'15'}
+					{name: 'A1', places:'15'},
+					{name: 'A61', places:'15'},
+					{name: 'A301', places:'15'}
 ])
 
