@@ -1,15 +1,26 @@
- <table class="table table-striped table-list-search">
-        <thead>
-            <tr>
-                <th>Nr.</th>
-                <th>Nazwa</th>
-                <th>Godzina</th>
-                <th>Dzień</th>
-                <th>Tydzień A/B</th>
-                <th>Sala</th>  
-                <th>Wolnych miejsc</th>    
-            </tr>
-        </thead>
+<div class ="col-md-1">
+</div>
+<div class ="col-md-10">
+<div class="row">
+        <div class="panel panel-primary filterable">
+            <div class="panel-heading">
+                <h3 class="panel-title">Przedmioty</h3>
+                <div class="pull-right">
+                    <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> Filtry</button>
+                </div>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr class="filters">
+                        <th><input type="text" class="form-control" placeholder="Id" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Nazwa" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Godzina" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Dzień" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Tydzień" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Sala" disabled></th>
+                    </tr>
+                </thead>
+    
         <tbody>
                 <% if @lessons.empty? %>
                 <td colspan="7"> Nie dodałeś żadnych zajęć </td>
@@ -57,4 +68,8 @@
         </tbody>
 
     </table>
+
+    </div>
+    </div>
+    </div>
 
