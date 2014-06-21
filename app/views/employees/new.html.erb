@@ -5,31 +5,12 @@
             <div class="form-box">
             <h3> Rejestracja Pracownika </h3>
             <%= form_for :employee, url: employees_path, html: { method: :post, :class => "form-horizontal"} do |f| %>
-
-   
-        
-                <%= f.text_field :name, placeholder: "Imię" %>
-           
-       
-            
-                <%= f.text_field :surname, placeholder: "Nazwisko" %>
-            
-        
-            
-                <%= f.text_field :degree, placeholder: "Stopień naukowy"  %>
-          
-        
-        
-            
-                <%= f.text_field :email, placeholder: "Email"  %>
-           
-        
-       
-          
-                <%= f.password_field :password,  placeholder: "Hasło" %>
-           
-                 <hr>
-       
+                    <%= f.text_field :name, placeholder: "Imię" %>
+                    <%= f.text_field :surname, placeholder: "Nazwisko" %>
+                    <%= f.text_field :degree, placeholder: "Stopień naukowy"  %>
+                    <%= f.text_field :email, placeholder: "Email"  %>
+                    <%= f.password_field :password,  placeholder: "Hasło" %>
+                    <hr>
                 <div class="form-group text-center">
                     <%= f.submit "Zapisz", class: "btn btn-primary active btn-lg" %>
                 </div>

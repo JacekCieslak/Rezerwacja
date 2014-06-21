@@ -13,7 +13,8 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <% if controller_name == 'students' %>
+            
+            <% if controller_name == 'students'  %>
                 <li><%= link_to "Zaloguj", user_session_path %></li>
                 <li><%= link_to "Rejestracja Pracownika", new_employee_path %></li>
             <% elsif controller_name == 'sessions'  %>
@@ -21,31 +22,79 @@
                 <li><%= link_to "Rejestracja Pracownika", new_employee_path %></li>
 
             <% elsif controller_name == 'employees'  %>
-                 <li></li>
+                <li></li>
                 <li><%= link_to "Zaloguj", user_session_path %></li>
                 <li><%= link_to "Rejestracja Użytkownik", new_student_path %></li>
-
-                <% elsif controller_name == 'main_page'  %>
-                <% unless user_signed_in? %>
-                    <li><%= link_to "Zaloguj", user_session_path %></li>
-                    <li><%= link_to "Rejestracja Użytkownik", new_student_path %></li>
-                    <li><%= link_to "Rejestracja Pracownika", new_employee_path %></li>
+             
+             <% elsif  controller_name == 'main_page' %>
+                 <% unless user_signed_in?  %>
+                  <li><%= link_to "Zaloguj", user_session_path %></li>
+                  <li><%= link_to "Rejestracja Użytkownik", new_student_path %></li>
+                  <li><%= link_to "Rejestracja Pracownika", new_employee_path %></li>
                 <% else %>
-                    <li class="dropdown pull-right">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Mój profil <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Ustawienia</a></li>
-                            <li class="divider"></li>
-                            <li><%= link_to "Wyloguj", destroy_user_session_path, :method => :delete %></li>
-                        </ul>
-                    </li>
+                <% if  current_user.profile_type == 'Student'  %>
+                
+                      <li class="dropdown pull-right">
+                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Mój profil <b class="caret"></b></a>
+                          <ul class="dropdown-menu">
+                              <li><a href="#">Ustawienia</a></li>
+                              <li class="divider"></li>
+                              <li><%= link_to "Wyloguj", destroy_user_session_path, :method => :delete %></li>
+                         </ul>
+                      </li>
+                      <li><%= link_to "Zajęcia", lessons_path %></li>
+                      <%= csrf_meta_tags %>
+                <% elsif current_user.profile_type == 'Employee' %> 
+             
+                 <li class="dropdown pull-right">
+                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Mój profil <b class="caret"></b></a>
+                          <ul class="dropdown-menu">
+                              <li><a href="#">Ustawienia</a></li>
+                              <li class="divider"></li>
+                              <li><%= link_to "Wyloguj", destroy_user_session_path, :method => :delete %></li>
+                         </ul>
+                      </li>
+                      <li><%= link_to "Zajęcia", lessons_path %></li>
+                      <li><%= link_to "Dodaj zajęcia", new_lesson_path %></li>
+                    <%= csrf_meta_tags %>
+              
+                  <% end %>
                 <% end %>
-                <%= csrf_meta_tags %>
-                 <% end %> 
-          </ul>
-          <% if  user_signed_in? %>
-           <p style="display: inline; float: right; margin-top: 15px; color: white" > Zalogowany jako: <%= current_user.email %> </p>
-           <% end %>
+
+
+              <% elsif  controller_name == 'lessons' %>  
+                <% if  current_user.profile_type == 'Student'  %>
+                
+                      <li class="dropdown pull-right">
+                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Mój profil <b class="caret"></b></a>
+                          <ul class="dropdown-menu">
+                              <li><a href="#">Ustawienia</a></li>
+                              <li class="divider"></li>
+                              <li><%= link_to "Wyloguj", destroy_user_session_path, :method => :delete %></li>
+                         </ul>
+                      </li>
+                      <li><%= link_to "Zajęcia", lessons_path %></li>
+                      <%= csrf_meta_tags %>
+                <% elsif current_user.profile_type == 'Employee' %> 
+             
+                 <li class="dropdown pull-right">
+                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Mój profil <b class="caret"></b></a>
+                          <ul class="dropdown-menu">
+                              <li><a href="#">Ustawienia</a></li>
+                              <li class="divider"></li>
+                              <li><%= link_to "Wyloguj", destroy_user_session_path, :method => :delete %></li>
+                         </ul>
+                      </li>
+                      <li><%= link_to "Zajęcia", lessons_path %></li>
+                      <li><%= link_to "Dodaj zajęcia", new_lesson_path %></li>
+                    <%= csrf_meta_tags %>
+              
+                  <% end %>
+              <% end %>
+              </ul>
+              <% if  user_signed_in? %>
+                <p style="display: inline; float: right; margin-top: 15px; color: white" > Zalogowany jako: <%= current_user.email %> </p>
+              <% end %>
 
         </div><!--/.nav-collapse -->
 
