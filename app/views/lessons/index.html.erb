@@ -2,14 +2,14 @@
 </div>
 <div class ="col-md-10">
 <div class="row">
-        <div class="panel panel-primary filterable">
-            <div class="panel-heading">
+        <div  class="panel panel-primary filterable">
+            <div style="background-color : #404040  ; " class="panel-heading ">
                 <h3 class="panel-title">Przedmioty</h3>
                 <div class="pull-right">
                     <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> Filtry</button>
                 </div>
             </div>
-            <table class="table">
+            <table  class="table">
                 <thead>
                     <tr class="filters">
                         <th><input type="text" class="form-control" placeholder="Id" disabled></th>
@@ -53,7 +53,7 @@
                          <% else %>
                             <td> <%= form_for :lesson, url: lessons_path, html: { method: :post, :class => "form-horizontal"} do |f| %>
                                     <%= f.hidden_field :lesson_id, value: lesson.id %>
-                                    <%= f.submit "Zapisz", class: "btn btn-primary active btn-lg" %>
+                                    <%= f.submit "Zapisz", class: "btn btn-primary active btn-x" %>
                                  <% end %> 
                              </td>
                         <%end%>

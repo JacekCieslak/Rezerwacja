@@ -4,12 +4,14 @@
 </div>
 <div class="col-xs-6 col-sm-4">
 
-	<h1 style="text-align: center; font-size: 80px">Aplikacja</h1>
-	<h1 style="text-align: center; font-size: 80px">Rezerwacja Sal</h1>
+	<h1  style="text-align: center; font-size: 80px;  font-family: 'Lobster', serif;">Aplikacja</h1>
+	<h1 font-family:"papyrus" style="text-align: center; font-size: 60px;   font-family: 'Lobster', serif;">Rezerwacja Zajęć</h1>
 
 	<div class="login_button">
 	 <% if user_signed_in? %>
 	 <% elsif %>
+
+	 	<hr>
 
 		<%= link_to "Zaloguj", user_session_path, class: "btn btn-primary btn-lg" %>
 	<% end %>
