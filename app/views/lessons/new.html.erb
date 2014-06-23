@@ -28,7 +28,7 @@
                      <div class="form-box">
                         <%= f.label "Sala ID"%>
                     </div>
-                        <%= f.collection_select(:room_id, Room.all, :id, :name ) %>
+                        <div class ="form-box "> <%= f.collection_select(:room_id, Room.all, :id, :name,{:prompt=>false}, {:class=>'form-control'}) %> </div>
                     
                     <hr>
                     <div class="form-group text-center">

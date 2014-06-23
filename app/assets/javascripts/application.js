@@ -19,7 +19,11 @@
 /*
 Please consider that the JS part isn't production ready at all, I just code it to show the concept of merging filters and titles together !
 */
-$(document).ready(function(){
+$(document).ready(function() { 
+    readyPage();
+});
+$(document).on('page:load',function() { readyPage();});
+ function readyPage() {
     $('.filterable .btn-filter').click(function(){
         var $panel = $(this).parents('.filterable'),
         $filters = $panel.find('.filters input'),
@@ -60,4 +64,4 @@ $(document).ready(function(){
             $table.find('tbody').prepend($('<tr class="no-result text-center"><td colspan="'+ $table.find('.filters th').length +'">No result found</td></tr>'));
         }
     });
-});
+}
