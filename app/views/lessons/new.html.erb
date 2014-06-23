@@ -8,7 +8,7 @@
             <div class="form-box">
             <h3> Dodawanie Nowego Przedmiotu </h3>
             <%= form_for :lesson, url: lessons_path, html: { method: :post, :class => "form-horizontal"} do |f| %>
-                    <%= f.text_field :name, placeholder: "Nazwa" %>
+                    <%= f.text_field :name, placeholder: "Nazwa", style: "text-transform: capitalize"  %>
                     <div class="form-box">
                      <%= f.label "Godzina rozpoczecia" %>
                     </div>

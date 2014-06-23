@@ -12,7 +12,7 @@ class Lesson < ActiveRecord::Base
 	def check_lesson
 		@lesson = Lesson.where(hour: self.hour, room_id: self.room_id, day: self.day, week_type: self.week_type )
 		if @lesson.count > 0
-			errors.add(:hour, 'NIE')
+			errors.add(self.name,' nie może być dodany, ponieważ w  podanym terminie sala jest zarezerwowana przez inny przedmiot')
 			
 		end
 	end
