@@ -49,14 +49,14 @@ $(document).on('page:load',function() { readyPage();});
         column = $panel.find('.filters th').index($input.parents('th')),
         $table = $panel.find('.table'),
         $rows = $table.find('tbody tr');
-        /* Dirtiest filter function ever ;) */
+        /* Dirtiest filter function ever  */
         var $filteredRows = $rows.filter(function(){
             var value = $(this).find('td').eq(column).text().toLowerCase();
             return value.indexOf(inputContent) === -1;
         });
         /* Clean previous no-result if exist */
         $table.find('tbody .no-result').remove();
-        /* Show all rows, hide filtered ones (never do that outside of a demo ! xD) */
+        /* Show all rows, hide filtered ones (never do that outside of a demo ! ) */
         $rows.show();
         $filteredRows.hide();
         /* Prepend no-result row if all rows are filtered */
